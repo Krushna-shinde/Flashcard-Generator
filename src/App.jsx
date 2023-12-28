@@ -12,12 +12,14 @@ function App() {
       <div className="App">
         <TopBar/>
         <NavBar />
+        <div className=" ml-20 mr-20"> 
         <Routes>
           <Route path="/" element={<CreateFlashCard />}></Route>
           <Route path="/myflashcard" element={<MyFlashCard/>}></Route>
           <Route path="/flashcard-details" element={<FlashCardDetails />}>
           </Route>
         </Routes>
+        </div>
       </div>
     </Router>
   );

@@ -8,7 +8,7 @@ const NavBar = () => {
     setSelect(true);
   },[])
   return (
-    <div className=" width-full pt-4 m-20 mt-0">
+    <div className=" width-full pt-4 m-20 mt-0 mb-0">
       <h1 className="text-xl text-black font-bold text-left mb-5 ml-0">
         Create Flashcard
       </h1>
