@@ -2,7 +2,7 @@ import "./App.css";
 import NavBar from "./Componants/NavBar/NavBar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CreateFlashCard from "./Componants/CreateFlashCard/CreateFlashCard";
-import MyFlashCard from "./Componants/MyFlashCard/MyFlashCard";
+import {MyFlashCard} from "./Componants/MyFlashCard/MyFlashCard";
 import FlashCardDetails from "./Componants/Details/FlashCardDetails";
 import TopBar from "./Componants/TopBar/TopBar";
 

@@ -19,18 +19,49 @@ const CreateFlashCard = () => {
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     setSelectFile(file);
+
+    // Convert the image to Data URL and store it in localStorage
+    const reader = new FileReader();
+    reader.onload = () => {
+      localStorage.setItem("selectedImage", reader.result);
+    };
+    reader.readAsDataURL(file);
   };
+
 
   const handleTermImageChange = (event) => {
     const file = event.target.files[0];
     setSelectTermImg(file);
+
+  // Convert the image to Data URL and store it in localStorage
+    const reader = new FileReader();
+    reader.onload = () => {
+      localStorage.setItem("selectedTermImage", reader.result);
+    };
+    reader.readAsDataURL(file);
   };
 
-  const addNewFlashcard = (values, actions) => {
+
+  
+   const addNewFlashcard = (values, actions) => {
+    // Retrieve images from localStorage before dispatching
+    const groupImage = localStorage.getItem("selectedImage");
+    const termImage = localStorage.getItem("selectedTermImage");
+
+    // Add images to values before dispatching
+    values.group_img = groupImage;
+    values.cards.forEach((card, index) => {
+      card.card_img = termImage;
+    });
+
     dispatch(addFlashCard(values));
+
+    // Reset form and clear localStorage
     actions.resetForm();
     setSelectFile(null);
     setSelectTermImg(null);
+    localStorage.removeItem("selectedImage");
+    localStorage.removeItem("selectedTermImage");
   };
 
   useEffect(() => {
