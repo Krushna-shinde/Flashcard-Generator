@@ -5,6 +5,7 @@ import { MdDownload, MdPrint } from "react-icons/md";
 import { BiArrowBack } from "react-icons/bi";
 import { useNavigate, useParams } from "react-router-dom";
 import Tab from "../../assets/tab.jpg";
+import { Pagination } from "./pagination/Pagination";
 
 const FlashCardDetails = () => {
   const { groupId } = useParams();
@@ -111,13 +112,13 @@ const FlashCardDetails = () => {
       </div>
 
       {/* Pagination Component */}
-      {/* <div className="ml-[44%]">
+      <div className="ml-[44%]">
         <Pagination
           cardsPerPage={cardPerPage}
           totalCards={CardArray.length}
           paginate={paginate}
         />
-      </div> */}
+      </div>
     </div>
   );
 };
