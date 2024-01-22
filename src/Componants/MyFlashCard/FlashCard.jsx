@@ -72,7 +72,7 @@ export const FlashCard = ({ card, flashcards }) => {
       <div>
         <button
           title="View Cards"
-        //   onClick={() => navigate(`/flascard-details/${card.group_id}`)}
+          onClick={() => navigate(`/flashcard-details/${card.group_id}`)}
           className="py-1 px-16 text-red-600 font-bold rounded-sm border-red-600 ring-2 ring-red-600"
         >
           View Cards

@@ -55,8 +55,6 @@ const CreateFlashCard = () => {
     });
 
     dispatch(addFlashCard(values));
-
-    // Reset form and clear localStorage
     actions.resetForm();
     setSelectFile(null);
     setSelectTermImg(null);

@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<CreateFlashCard />}></Route>
           <Route path="/myflashcard" element={<MyFlashCard/>}></Route>
-          <Route path="/flashcard-details" element={<FlashCardDetails />}>
+          <Route path="/flashcard-details/:groupId" element={<FlashCardDetails />}>
           </Route>
         </Routes>
         </div>
