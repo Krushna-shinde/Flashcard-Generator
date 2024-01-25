@@ -1,4 +1,4 @@
-import React, { useState,useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
 import { MdUploadFile } from "react-icons/md";
 import { FiPlus } from "react-icons/fi";
@@ -28,12 +28,11 @@ const CreateFlashCard = () => {
     reader.readAsDataURL(file);
   };
 
-
   const handleTermImageChange = (event) => {
     const file = event.target.files[0];
     setSelectTermImg(file);
 
-  // Convert the image to Data URL and store it in localStorage
+    // Convert the image to Data URL and store it in localStorage
     const reader = new FileReader();
     reader.onload = () => {
       localStorage.setItem("selectedTermImage", reader.result);
@@ -41,9 +40,7 @@ const CreateFlashCard = () => {
     reader.readAsDataURL(file);
   };
 
-
-  
-   const addNewFlashcard = (values, actions) => {
+  const addNewFlashcard = (values, actions) => {
     // Retrieve images from localStorage before dispatching
     const groupImage = localStorage.getItem("selectedImage");
     const termImage = localStorage.getItem("selectedTermImage");
@@ -189,7 +186,9 @@ const CreateFlashCard = () => {
                               type="text"
                               name={`cards.${index}.card_name`}
                               className="pl-8 pr-2 py-2 md:w-96 border-slate-300 border-2 rounded-lg focus:border-slate-400"
-                              innerRef={(el) => (termInputRefs.current[index] = el)}
+                              innerRef={(el) =>
+                                (termInputRefs.current[index] = el)
+                              }
                             />
                             <ErrorMessage
                               component={"div"}
@@ -264,12 +263,12 @@ const CreateFlashCard = () => {
                         <div className="flex items-center cursor-pointer mb-2 hover:text-blue-600">
                           {index >= 0 && (
                             <span
-                            onClick={() => {
-                              termInputRefs.current[index].focus();
-                            }}
-                          >
-                            <HiOutlinePencilAlt className="text-3xl" />
-                          </span>
+                              onClick={() => {
+                                termInputRefs.current[index].focus();
+                              }}
+                            >
+                              <HiOutlinePencilAlt className="text-3xl" />
+                            </span>
                           )}
                         </div>
                       </div>
@@ -288,8 +287,7 @@ const CreateFlashCard = () => {
                   }}
                 >
                   <FiPlus className="text-xl" />
-                  <span>
-                   Add More</span>
+                  <span>Add More</span>
                 </div>
               </div>
             )}

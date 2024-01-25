@@ -25,6 +25,7 @@ export const Form_Validation = yup.object().shape({
         .min(25, "Card Description must be at least 25 characters.")
         .max(500, "Card Description must be less than 500 characters.")
         .required("Card Description is required."),
+        card_img: yup.mixed().nullable().notRequired(),
     })
   ),
 });

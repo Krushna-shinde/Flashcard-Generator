@@ -112,10 +112,12 @@ const FlashCardDetails = () => {
 
         {/* Displaying Selected Flashcard */}
         <div className="mb-5 col-span-3 md:col-span-2 flex  l:flex-row items-center w-full bg-white shadow-lg rounded-lg">
+          
           {/* Displaying Flashcard Image */}
-          {flashcard.card_image ? (
+          {typeof flashcard.card_img !== "undefined" &&
+          flashcard.card_img !== null ? (
             <img
-              src={flashcard.card_image}
+              src={flashcard.card_img}
               alt="card_image"
               className="object-contain md:w-[20vw] p-6 h-full"
             />
@@ -172,6 +174,7 @@ const FlashCardDetails = () => {
 
       {/* Pagination Component */}
       <div className="ml-[44%]">
+        {/* Provide props to Pagination Component */}
         <Pagination
           cardsPerPage={cardPerPage}
           totalCards={CardArray.length}

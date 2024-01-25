@@ -1,15 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
+// initial State
 const initialState = {
-  flashcards: localStorage.getItem('flashcards') ? JSON.parse(localStorage.getItem('flashcards')) : [],
+  // Check the Localstarage than any card is present and set it into the initial state, If there is no data present then set it to empty array.
+  flashcards: localStorage.getItem("flashcards")
+    ? JSON.parse(localStorage.getItem("flashcards"))
+    : [],
 };
 
 const updateLocalStorage = (arr) => {
-  localStorage.setItem('flashcards', JSON.stringify(arr));
+  localStorage.setItem("flashcards", JSON.stringify(arr));
 };
 
 export const flashcardSlice = createSlice({
-  name: 'flashcard',
+  name: "flashcard",
   initialState,
   reducers: {
     // Add New Flashcards
@@ -17,27 +21,31 @@ export const flashcardSlice = createSlice({
       state.flashcards.push({
         card: action.payload,
       });
+
+      // after adding the card to the store then also add to the localstorage
       updateLocalStorage(state.flashcards);
     },
-    deleteFlashCard: (state, action) => {
-      //console.log(action)
 
+    deleteFlashCard: (state, action) => {
       //delete flashcard from store and localstorage
-      const fcard = state.flashcards.filter(ele => {
-        if (ele.card.group_id === action.payload.group_id && ele.card.group_name === action.payload.group_name) {
+      const deleteCard = state.flashcards.filter((ele) => {
+        if (
+          ele.card.group_id === action.payload.group_id &&
+          ele.card.group_name === action.payload.group_name
+        ) {
           return ele.card.group_name !== action.payload.group_name;
         }
         return ele;
       });
-      return { ...state, flashcards: fcard };
-
+      return { ...state, flashcards: deleteCard };
     },
-     //update the state of localstorage
-     updateState: (state, action) => {
+
+    //update the state of localstorage
+    updateState: (state, action) => {
       updateLocalStorage(state.flashcards);
-    }
+    },
   },
 });
 
-export const { addFlashCard ,deleteFlashCard,updateState} = flashcardSlice.actions;
+export const { addFlashCard, deleteFlashCard, updateState } =flashcardSlice.actions;
 export default flashcardSlice.reducer;
