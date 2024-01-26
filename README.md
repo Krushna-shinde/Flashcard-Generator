@@ -1,7 +1,7 @@
 # Flashcard Generator
 
 ## Pages
- - Create New Flashcard Page.
+ - Create Flashcard Page.
 
  - My Flashcard Page.
 
@@ -21,13 +21,13 @@
 6 - daisyUI-Tailwind CSS Components
 
 ## Pages in brief
-### 1 - Create New Flashcard Page.
+### 1 - Create Flashcard Page.
 This page will create a particular flashcard and contain two forms. One for creating a flashcard group and the other for adding terms or cards to that flashcard group.
 The main flashcard form has three feilds - Create Group (Title of flashcard Group), Image and Description.
-The term form will also have three feilds - Enter Term (Title of card), Enter Definition and image.
+The term form will also have three feilds - Enter Term (Title of card), Enter Definition and image. Image field is not working properly right now.
       
 ### 2 - My Flashcard Page.
-This page will display all group of flashcards, Its shows image on top, then name of group, then description and last it has two buttons -
+This page will display all group of flashcards, Its shows image on top, then name og group, then description and last it has two buttons -
 1 - View Cards
 This will navigate to Flashcard Details Page.
 2 - Delete Icon
@@ -39,6 +39,7 @@ The center part i.e. the term details can also be shown as a carousel so that th
 Remainng two buttons not working right now.
 
 ## Folder Structure
+
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

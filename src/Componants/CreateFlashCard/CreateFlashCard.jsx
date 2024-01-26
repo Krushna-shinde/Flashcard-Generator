@@ -94,7 +94,7 @@ const CreateFlashCard = () => {
                   *
                 </span>
               </h2>
-              <div className="flex items-center">
+              <div className="flex items-center flex-wrap ">
                 <div>
                   <Field
                     type="text"
@@ -171,15 +171,15 @@ const CreateFlashCard = () => {
               <div className=" px-10 py-4 bg-white drop-shadow-lg rounded-md">
                 {values.cards.map((card, index) => (
                   <div key={index} className=" ">
-                    <div className="flex gap-5 items-center">
-                      <div className="flex flex-col relative">
+                    <div className="flex gap-5 items-center flex-wrap">
+                      <div className="flex flex-col relative ">
                         <h2 className="text-left">
                           Enter Term{" "}
                           <span className="relative left-0 top-1 pr-2 text-lg font-medium">
                             *
                           </span>
                         </h2>
-                        <div className="flex items-center">
+                        <div className="flex items-center ">
                           <div>
                             <Field
                               id={`termInput-${index}`}

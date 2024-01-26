@@ -112,7 +112,6 @@ const FlashCardDetails = () => {
 
         {/* Displaying Selected Flashcard */}
         <div className="mb-5 col-span-3 md:col-span-2 flex  l:flex-row items-center w-full bg-white shadow-lg rounded-lg">
-          
           {/* Displaying Flashcard Image */}
           {typeof flashcard.card_img !== "undefined" &&
           flashcard.card_img !== null ? (
@@ -123,9 +122,9 @@ const FlashCardDetails = () => {
             />
           ) : (
             <img
-              src={Tab}
+              src={flashcard.card_img || Tab}
               alt="card_image"
-              className="object-contain md:w-[20vw] p-6 w-[32rem] h-full"
+              className="object-contain md:w-ccc[20vw] p-6 w-[32rem] h-full"
             />
           )}
 
