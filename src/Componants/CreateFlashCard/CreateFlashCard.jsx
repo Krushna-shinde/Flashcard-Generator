@@ -171,7 +171,7 @@ const CreateFlashCard = () => {
               <div className=" px-10 py-4 bg-white drop-shadow-lg rounded-md">
                 {values.cards.map((card, index) => (
                   <div key={index} className=" ">
-                    <div className="flex gap-5 items-center flex-wrap">
+                    <div className="flex gap-5 items-center">
                       <div className="flex flex-col relative ">
                         <h2 className="text-left">
                           Enter Term{" "}
@@ -220,12 +220,12 @@ const CreateFlashCard = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="flex flex-col relative">
+                      <div className="flex items-center relative">
                         {selectTermImg === null ? (
                           <>
                             <label
                               htmlFor={`uploadImg-${index}`}
-                              className="flex items-center px-5 py-2 mt-6 bg-white border-2 border-slate-300 rounded-md active:border-blue-600 text-blue-700 font-semibold"
+                              className="flex items-center px-5 py-2 ml-6 bg-white border-2 border-slate-300 rounded-md active:border-blue-600 text-blue-700 font-semibold"
                             >
                               <MdUploadFile className="text-xl xl:text-2xl mr-2" />{" "}
                               Select Image
