@@ -36,7 +36,7 @@ This will open model to delete group of flashcard which user click.
 This page will have the layout as shown above. It must show the Flashcard title and description at the top.
 The term in the flash card should be shown on the left side , and when a user clicks on a particular term, the details must be displayed in the center.
 The center part i.e. the term details can also be shown as a carousel so that the user can navigate to other terms by clicking the arrow at the botton. On clicking the share button , a modal will open which will contain the link of that flashcard and copy icon(button). When user clicks the copy button , the link will be copied to clipboard and it will shown messege age "link copeid to clipboard".
-Remainng two buttons not working right now.
+Remaining two buttons not working right now.
 
 ## Folder Structure
 #Link is : https://drive.google.com/file/d/194U6HClj_wZ-t6jhfadrVNyNJcREPO_D/view?usp=sharing
