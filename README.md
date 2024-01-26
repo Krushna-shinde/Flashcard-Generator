@@ -39,6 +39,7 @@ The center part i.e. the term details can also be shown as a carousel so that th
 Remainng two buttons not working right now.
 
 ## Folder Structure
+#Link is : https://drive.google.com/file/d/194U6HClj_wZ-t6jhfadrVNyNJcREPO_D/view?usp=sharing
 
 
 
