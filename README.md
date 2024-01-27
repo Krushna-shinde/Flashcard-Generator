@@ -20,11 +20,13 @@
 
 6 - daisyUI-Tailwind CSS Components
 
+7 -react-tostify
+
 ## Pages in brief
 ### 1 - Create Flashcard Page.
 This page will create a particular flashcard and contain two forms. One for creating a flashcard group and the other for adding terms or cards to that flashcard group.
 The main flashcard form has three feilds - Create Group (Title of flashcard Group), Image and Description.
-The term form will also have three feilds - Enter Term (Title of card), Enter Definition and image. Image field is not working properly right now.
+The term form will also have three feilds - Enter Term (Title of card), Enter Definition and image. 
       
 ### 2 - My Flashcard Page.
 This page will display all group of flashcards, Its shows image on top, then name og group, then description and last it has two buttons -

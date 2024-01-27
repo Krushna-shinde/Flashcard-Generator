@@ -8,11 +8,14 @@ import { useDispatch } from "react-redux";
 import { addFlashCard } from "../../ReduxToolkit/Reducer/flashcardSlice";
 import { HiOutlineTrash } from "react-icons/hi";
 import { HiOutlinePencilAlt } from "react-icons/hi";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const CreateFlashCard = () => {
   const dispatch = useDispatch();
   const [selectFile, setSelectFile] = useState(null);
-  const [selectTermImg, setSelectTermImg] = useState(null);
+  const [selectTermImgs, setSelectTermImgs] = useState([]);
   const uniqueId = nanoid(4);
   const termInputRefs = useRef([]);
 
@@ -28,14 +31,19 @@ const CreateFlashCard = () => {
     reader.readAsDataURL(file);
   };
 
-  const handleTermImageChange = (event) => {
+  const handleTermImageChange = (event, index) => {
     const file = event.target.files[0];
-    setSelectTermImg(file);
+
+    // Create a copy of the array to avoid mutating the state directly
+    const newSelectTermImgs = [...selectTermImgs];
+    newSelectTermImgs[index] = file;
+
+    setSelectTermImgs(newSelectTermImgs);
 
     // Convert the image to Data URL and store it in localStorage
     const reader = new FileReader();
     reader.onload = () => {
-      localStorage.setItem("selectedTermImage", reader.result);
+      localStorage.setItem(`selectedTermImage_${index}`, reader.result);
     };
     reader.readAsDataURL(file);
   };
@@ -43,20 +51,26 @@ const CreateFlashCard = () => {
   const addNewFlashcard = (values, actions) => {
     // Retrieve images from localStorage before dispatching
     const groupImage = localStorage.getItem("selectedImage");
-    const termImage = localStorage.getItem("selectedTermImage");
+    
 
     // Add images to values before dispatching
     values.group_img = groupImage;
     values.cards.forEach((card, index) => {
+      const termImage = localStorage.getItem(`selectedTermImage_${index}`);
       card.card_img = termImage;
     });
 
     dispatch(addFlashCard(values));
     actions.resetForm();
     setSelectFile(null);
-    setSelectTermImg(null);
+    setSelectTermImgs([]); //reset the array for term imgs
     localStorage.removeItem("selectedImage");
-    localStorage.removeItem("selectedTermImage");
+    // Remove term images from localStorage
+    values.cards.forEach((_, index) => {
+      localStorage.removeItem(`selectedTermImage_${index}`);
+    });
+    // Notify with a successful message using react Toastify
+    toast.success("Flashcard created Successfully....");
   };
 
   useEffect(() => {
@@ -77,7 +91,7 @@ const CreateFlashCard = () => {
             card_id: nanoid(2),
             card_name: "",
             card_description: "",
-            card_img: null,
+            card_img: [],
           },
         ],
       }}
@@ -221,7 +235,7 @@ const CreateFlashCard = () => {
                         </div>
                       </div>
                       <div className="flex items-center relative">
-                        {selectTermImg === null ? (
+                        {selectTermImgs[index] === undefined ? (
                           <>
                             <label
                               htmlFor={`uploadImg-${index}`}
@@ -234,13 +248,15 @@ const CreateFlashCard = () => {
                               type="file"
                               id={`uploadImg-${index}`}
                               className="hidden"
-                              onChange={handleTermImageChange}
+                              onChange={(event) =>
+                                handleTermImageChange(event, index)
+                              }
                             />
                           </>
                         ) : (
                           <div className="mt-4">
                             <img
-                              src={URL.createObjectURL(selectTermImg)}
+                              src={URL.createObjectURL(selectTermImgs[index])}
                               alt="Selected"
                               className="flex items-center px-5 py-2 ml-6"
                               width={"150px"}
@@ -282,7 +298,7 @@ const CreateFlashCard = () => {
                       card_id: nanoid(2),
                       card_name: "",
                       card_description: "",
-                      card_img: null,
+                      card_img: "[]",
                     });
                   }}
                 >
@@ -303,6 +319,7 @@ const CreateFlashCard = () => {
               create
             </button>
           </div>
+          <ToastContainer />
         </Form>
       )}
     </Formik>
