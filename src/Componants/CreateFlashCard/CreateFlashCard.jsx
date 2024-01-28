@@ -113,7 +113,7 @@ const CreateFlashCard = () => {
                   <Field
                     type="text"
                     name="group_name"
-                    className="pl-8 pr-2 py-2 md:w-96 border-slate-300 border-2 rounded-lg focus:border-slate-400"
+                    className="pl-8 pr-2 mt-3 py-2 md:w-96 border-slate-300 border-2 rounded-lg focus:border-slate-400 w-full"
                   />
                   <ErrorMessage
                     component={"div"}
@@ -122,12 +122,12 @@ const CreateFlashCard = () => {
                   />
                 </div>
 
-                <div className="flex flex-col relative ml-6">
+                <div className="flex items-center relative mb-2">
                   {selectFile === null ? (
                     <>
                       <label
                         htmlFor="uploadImg"
-                        className="flex items-center px-5 py-2 ml-6 bg-white border-2 border-slate-300 rounded-md active:border-blue-600 text-blue-700 font-semibold"
+                        className="lg:flex lg:items-center lg:w-[19rem] px-5 py-2 ml-6 bg-white border-2  border-slate-300 active:border-blue-600 text-blue-700 font-semibold rounded"
                       >
                         <MdUploadFile className="text-xl xl:text-2xl mr-2" />{" "}
                         Upload Image
@@ -182,14 +182,14 @@ const CreateFlashCard = () => {
 
           <FieldArray name="cards">
             {({ push, remove }) => (
-              <div className=" px-10 py-4 bg-white drop-shadow-lg rounded-md">
+              <div className=" px-10 py-4 bg-white drop-shadow-lg rounded-md ">
                 {values.cards.map((card, index) => (
                   <div key={index} className=" ">
-                    <div className="flex gap-5 items-center">
-                      <div className="flex flex-col relative ">
+                    <div className="flex flex-col space-y-3 md:space-x-10 md:flex-row">
+                      <div className="relative flex flex-col justify-center ">
                         <h2 className="text-left">
                           Enter Term{" "}
-                          <span className="relative left-0 top-1 pr-2 text-lg font-medium">
+                          <span className="absolute  m-1 ml-2 ">
                             *
                           </span>
                         </h2>
@@ -199,7 +199,7 @@ const CreateFlashCard = () => {
                               id={`termInput-${index}`}
                               type="text"
                               name={`cards.${index}.card_name`}
-                              className="pl-8 pr-2 py-2 md:w-96 border-slate-300 border-2 rounded-lg focus:border-slate-400"
+                              className="border-slate-300 p-2 pl-2 pr-2 py-2 md:w-64 border-2 rounded-md  focus:border-slate-400 w-full "
                               innerRef={(el) =>
                                 (termInputRefs.current[index] = el)
                               }
@@ -212,10 +212,10 @@ const CreateFlashCard = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="flex flex-col relative">
+                      <div className="relative flex flex-col justify-center">
                         <h2 className="text-left">
                           Enter Definition{" "}
-                          <span className="relative left-0 top-1 pr-2 text-lg font-medium">
+                          <span className="absolute top-1 ml-2 ">
                             *
                           </span>
                         </h2>
@@ -224,7 +224,7 @@ const CreateFlashCard = () => {
                             <Field
                               type="text"
                               name={`cards.${index}.card_description`}
-                              className="pl-8 pr-2 py-2 md:w-96 border-slate-300 border-2 rounded-lg focus:border-slate-400"
+                              className="border-slate-300 mb-3 p-2 pl-2 pr-2 py-2 md:w-64 border-2 rounded-md  focus:border-slate-400 w-full"
                             />
                             <ErrorMessage
                               component={"div"}
@@ -239,7 +239,7 @@ const CreateFlashCard = () => {
                           <>
                             <label
                               htmlFor={`uploadImg-${index}`}
-                              className="flex items-center px-5 py-2 ml-6 bg-white border-2 border-slate-300 rounded-md active:border-blue-600 text-blue-700 font-semibold"
+                              className=" lg:flex lg:items-center lg:w-[19rem] px-5 py-2 ml-6 mb-1 bg-white border-2  border-slate-300 active:border-blue-600 text-blue-700 font-semibold rounded"
                             >
                               <MdUploadFile className="text-xl xl:text-2xl mr-2" />{" "}
                               Select Image
@@ -264,7 +264,7 @@ const CreateFlashCard = () => {
                           </div>
                         )}
                       </div>
-                      <div className="flex-col items-center mt-4">
+                      <div className="flex items-center justify-around w-full md:flex-col md:space-y-4 md:mt-5">
                         <div className="flex items-center cursor-pointer mb-2 hover:text-blue-600">
                           {index >= 0 && (
                             <span
@@ -292,7 +292,7 @@ const CreateFlashCard = () => {
                   </div>
                 ))}
                 <div
-                  className="flex gap-2 mt-5 items-center cursor-pointer hover:text-blue-600"
+                  className="flex items-center space-x-2 text-blue-600 font-medium text-sm bg-white w-full mb-5 px-5 py-2"
                   onClick={() => {
                     push({
                       card_id: nanoid(2),
@@ -314,7 +314,7 @@ const CreateFlashCard = () => {
               disabled={isSubmitting}
               title="create"
               type="submit"
-              className="border-2 cursor-pointer py-2 px-14 mt-4 bg-red-600 text-white rounded-md"
+              className="py-2 px-14 mb-10  bg-red-600 text-white rounded-md"
             >
               create
             </button>

@@ -111,7 +111,7 @@ const FlashCardDetails = () => {
         </div>
 
         {/* Displaying Selected Flashcard */}
-        <div className="mb-5 col-span-3 md:col-span-2 flex  l:flex-row items-center w-full bg-white shadow-lg rounded-lg">
+        <div className="mb-5 col-span-3 md:col-span-2 flex flex-col sm:flex-row items-center w-full bg-white shadow-lg rounded-lg ">
           {/* Displaying Flashcard Image */}
           {typeof flashcard.card_img !== "undefined" &&
           flashcard.card_img !== null ? (
@@ -124,12 +124,12 @@ const FlashCardDetails = () => {
             <img
               src={flashcard.card_img || Tab}
               alt="card_image"
-              className="object-contain md:w-ccc[20vw] p-6 w-[32rem] h-full"
+              className="object-contain md:w-[20vw] p-6 w-[32rem] h-full"
             />
           )}
 
           {/* Displaying Flashcard Description */}
-          <p className="p-5 py-6 md:w-full">{flashcard.card_description}</p>
+          <p className="p-5 py-6 md:w-full max-w-full sm:ml-4">{flashcard.card_description}</p>
         </div>
 
         {/* Modals all like share download and print */}
