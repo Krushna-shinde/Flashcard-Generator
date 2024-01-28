@@ -8,9 +8,8 @@ import { useDispatch } from "react-redux";
 import { addFlashCard } from "../../ReduxToolkit/Reducer/flashcardSlice";
 import { HiOutlineTrash } from "react-icons/hi";
 import { HiOutlinePencilAlt } from "react-icons/hi";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CreateFlashCard = () => {
   const dispatch = useDispatch();
@@ -51,7 +50,6 @@ const CreateFlashCard = () => {
   const addNewFlashcard = (values, actions) => {
     // Retrieve images from localStorage before dispatching
     const groupImage = localStorage.getItem("selectedImage");
-    
 
     // Add images to values before dispatching
     values.group_img = groupImage;
@@ -189,9 +187,7 @@ const CreateFlashCard = () => {
                       <div className="relative flex flex-col justify-center ">
                         <h2 className="text-left">
                           Enter Term{" "}
-                          <span className="absolute  m-1 ml-2 ">
-                            *
-                          </span>
+                          <span className="absolute  m-1 ml-2 ">*</span>
                         </h2>
                         <div className="flex items-center ">
                           <div>
@@ -215,9 +211,7 @@ const CreateFlashCard = () => {
                       <div className="relative flex flex-col justify-center">
                         <h2 className="text-left">
                           Enter Definition{" "}
-                          <span className="absolute top-1 ml-2 ">
-                            *
-                          </span>
+                          <span className="absolute top-1 ml-2 ">*</span>
                         </h2>
                         <div className="flex items-center">
                           <div>

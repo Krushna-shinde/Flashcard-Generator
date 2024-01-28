@@ -129,7 +129,9 @@ const FlashCardDetails = () => {
           )}
 
           {/* Displaying Flashcard Description */}
-          <p className="p-5 py-6 md:w-full max-w-full sm:ml-4">{flashcard.card_description}</p>
+          <p className="p-5 py-6 md:w-full max-w-full sm:ml-4">
+            {flashcard.card_description}
+          </p>
         </div>
 
         {/* Modals all like share download and print */}
